@@ -1,0 +1,270 @@
+/* Base styles */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #fefefe;
+    color: #333;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+  
+  /* Header */
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+  }
+  
+  #summary p {
+    margin: 0.5rem 0;
+    font-weight: bold;
+  }
+  
+  /* Layout: Inputs + Charts split 50/50 on desktop */
+  .main-content {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+  
+  .inputs {
+    flex: 1 1 50%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .charts {
+    flex: 1 1 50%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .charts canvas {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto !important;
+    max-height: 300px;
+  }
+  
+  /* Category styling */
+  .category {
+    background: #f8f8f8;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: background 0.3s ease;
+  }
+  
+  .category-header {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Subcategories */
+  .subcategories {
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+    border-left: 2px solid #ddd;
+  }
+  
+  .subcategories label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.4rem 0;
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: #555;
+  }
+  
+  .subcategories input[type="number"] {
+    width: 100px;
+    margin-left: 0.5rem;
+    padding: 0.3rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Buttons */
+  .remove-sub {
+    background: none;
+    border: none;
+    color: #d11a2a;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .remove-sub:hover {
+    color: #a00;
+  }
+  
+  .add-sub {
+    margin-top: 0.5rem;
+    background: #e0e0e0;
+    border: none;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .add-sub:hover {
+    background: #d0d0d0;
+  }
+  
+  .add-category {
+    margin-top: 2rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  .add-category input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .add-category button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .add-category button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Dark mode */
+  body.dark {
+    background: #1e1e1e;
+    color: #eee;
+  }
+  
+  body.dark .category {
+    background: #2b2b2b;
+  }
+  
+  body.dark input,
+  body.dark .add-category input {
+    background: #333;
+    color: #fff;
+    border: 1px solid #555;
+  }
+  
+  body.dark .add-category button,
+  body.dark .add-sub {
+    background-color: #555;
+    color: #fff;
+  }
+  
+  body.dark .remove-sub {
+    color: #ff8a8a;
+  }
+  
+  body.dark .remove-sub:hover {
+    color: #ff4d4d;
+  }
+  
+  /* Theme toggle switch */
+  .theme-toggle {
+    margin-left: 1rem;
+  }
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 42px;
+    height: 24px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    background-color: #ccc;
+    border-radius: 34px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.4s;
+  }
+  
+  .slider::before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #4CAF50;
+  }
+  
+  input:checked + .slider::before {
+    transform: translateX(18px);
+  }
+  
+  /* Responsive fallback */
+  @media (max-width: 768px) {
+    .main-content {
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+  
+    .inputs, .charts {
+      flex: 1 1 100%;
+    }
+  
+    .charts canvas {
+      height: 250px !important;
+    }
+  }
+
+  .delete-category {
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 1rem;
+    margin-left: 1rem;
+    cursor: pointer;
+  }
+  
+  .delete-category:hover {
+    color: #d11a2a;
+  }
+  
+  

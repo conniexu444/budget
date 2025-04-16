@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monthly Budget</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/script.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Budget Summary</h1>
+      <div id="summary">
+        <p>Total Spend: $<span id="total-spend">0</span></p>
+        <p>Remaining: $<span id="remaining">0</span></p>
+      </div>
+      <div class="theme-toggle">
+        <label class="switch">
+          <input type="checkbox" id="toggle-theme" />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <!-- Inputs Area -->
+      <section class="inputs" id="input-section">
+        <div class="category" data-name="Income">
+          <label>Monthly Income: $<input type="number" id="income" value="0" /></label>
+        </div>
+
+        <div class="add-category">
+          <input type="text" id="new-category-name" placeholder="New category name" />
+          <button id="add-category-btn">Add Category</button>
+        </div>
+
+        <div class="category" data-name="Housing">
+          <div class="category-header">Housing Total: $<span id="total-housing">0</span></div>
+          <button class="add-sub" onclick="addSubcategory('housing')">+ Add Subcategory</button>
+          <div class="subcategories" id="subs-housing"></div>
+        </div>
+
+        <div class="category" data-name="Loans">
+          <div class="category-header">Loans Total: $<span id="total-loans">0</span></div>
+          <button class="add-sub" onclick="addSubcategory('loans')">+ Add Subcategory</button>
+          <div class="subcategories" id="subs-loans"></div>
+        </div>
+
+        <div class="category" data-name="Food">
+          <div class="category-header">Food Total: $<span id="total-food">0</span></div>
+          <button class="add-sub" onclick="addSubcategory('food')">+ Add Subcategory</button>
+          <div class="subcategories" id="subs-food"></div>
+        </div>
+        
+        <div class="category" data-name="Subscriptions">
+          <div class="category-header">Subscriptions Total: $<span id="total-subscriptions">0</span></div>
+          <button class="add-sub" onclick="addSubcategory('subscriptions')">+ Add Subcategory</button>
+          <div class="subcategories" id="subs-subscriptions"></div>
+        </div>
+
+        <div class="category" data-name="Transportation">
+          <div class="category-header">Transportation Total: $<span id="total-transportation">0</span></div>
+          <button class="add-sub" onclick="addSubcategory('transportation')">+ Add Subcategory</button>
+          <div class="subcategories" id="subs-transportation"></div>
+        </div>
+
+        <div class="category" data-name="Fun">
+            <div class="category-header">Fun Total: $<span id="total-fun">0</span></div>
+            <button class="add-sub" onclick="addSubcategory('fun')">+ Add Subcategory</button>
+            <div class="subcategories" id="subs-fun"></div>
+          </div>
+      </section>
+
+      <!-- Chart Area -->
+      <section class="charts">
+        <canvas id="budgetChart"></canvas>
+        <canvas id="donutChart" style="margin-top: 1rem;"></canvas>
+      </section>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
