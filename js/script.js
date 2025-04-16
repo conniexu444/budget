@@ -5,7 +5,6 @@ const inputSection = document.getElementById('input-section');
 const chartCtx = document.getElementById('budgetChart').getContext('2d');
 const donutCtx = document.getElementById('donutChart').getContext('2d');
 
-// Initial categories
 let categories = [
   { name: 'Housing', id: 'housing', subs: [] },
   { name: 'Loans', id: 'loans', subs: [] },
@@ -15,7 +14,6 @@ let categories = [
   { name: 'Transportation', id: 'transportation', subs: [] }
 ];
 
-// Pie chart: Category breakdown
 let chart = new Chart(chartCtx, {
   type: 'pie',
   data: {
@@ -39,7 +37,6 @@ let chart = new Chart(chartCtx, {
   }
 });
 
-// Donut chart: Remaining vs Spent
 let donutChart = new Chart(donutCtx, {
   type: 'doughnut',
   data: {
@@ -65,7 +62,6 @@ let donutChart = new Chart(donutCtx, {
   }
 });
 
-// Budget calculation and updates
 function updateBudget() {
   const income = parseFloat(incomeInput.value) || 0;
   let totalSpend = 0;

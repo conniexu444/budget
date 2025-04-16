@@ -1,4 +1,3 @@
-/* Base styles */
 body {
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
@@ -29,7 +28,6 @@ body {
     font-weight: bold;
   }
   
-  /* Layout: Inputs + Charts split 50/50 on desktop */
   .main-content {
     display: flex;
     flex-wrap: nowrap;
@@ -61,7 +59,6 @@ body {
     max-height: 300px;
   }
   
-  /* Category styling */
   .category {
     background: #f8f8f8;
     border-radius: 8px;
@@ -76,7 +73,6 @@ body {
     margin-bottom: 0.5rem;
   }
   
-  /* Subcategories */
   .subcategories {
     margin-top: 0.5rem;
     padding-left: 1rem;
@@ -101,7 +97,6 @@ body {
     border: 1px solid #ccc;
   }
   
-  /* Buttons */
   .remove-sub {
     background: none;
     border: none;
@@ -265,6 +260,20 @@ body {
   
   .delete-category:hover {
     color: #d11a2a;
+  }
+
+  .chart-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .chart-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: inherit;
+    text-align: center;
   }
   
   
